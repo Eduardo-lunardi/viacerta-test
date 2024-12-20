@@ -1,3 +1,41 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": true,
+    "target": "es2016",
+    "module": "Node16",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": [
+        "./src/*",
+        "./src"
+      ],
+      "assets/*": [
+        "./assets/*",
+        "./assets"
+      ]
+    },
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node16",
+    "skipLibCheck": true
+  },
+  "include": [
+    "./*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./src/*",
+    "./assets/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "./*.js"
+  ]
 }
