@@ -8,14 +8,8 @@
     "module": "Node16",
     "baseUrl": ".",
     "paths": {
-      "src/*": [
-        "./src/*",
-        "./src"
-      ],
-      "assets/*": [
-        "./assets/*",
-        "./assets"
-      ]
+      "src/*": ["./src/*", "./src"],
+      "assets/*": ["./assets/*", "./assets"]
     },
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
@@ -33,9 +27,5 @@
     "./src/*",
     "./assets/*"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "./*.js"
-  ]
+  "exclude": ["node_modules", "dist", "./*.js"]
 }
