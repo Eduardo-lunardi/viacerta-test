@@ -7,11 +7,12 @@ const theme = {
     green: '#83d352',
     red: '#ce3333',
     white: '#ffffff',
-    black: '#000000'
+    black: '#000000',
+    black100: '#00000010'
   },
   fontSize: {
-    small: '13px',
-    large: '24px'
+    small: 13,
+    large: 24
   }
 }
 

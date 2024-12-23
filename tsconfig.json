@@ -8,8 +8,14 @@
     "module": "Node16",
     "baseUrl": ".",
     "paths": {
-      "src/*": ["./src/*", "./src"],
-      "assets/*": ["./assets/*", "./assets"]
+      "src/*": [
+        "./src/*",
+        "./src"
+      ],
+      "assets/*": [
+        "./assets/*",
+        "./assets"
+      ]
     },
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
@@ -25,7 +31,12 @@
     "./src/**/*.tsx",
     "./src/**/*.ts",
     "./src/*",
-    "./assets/*"
+    "./assets/*",
+    "./@types/index.d.ts"
   ],
-  "exclude": ["node_modules", "dist", "./*.js"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "./*.js"
+  ]
 }
