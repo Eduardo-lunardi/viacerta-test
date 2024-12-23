@@ -39,7 +39,7 @@ export default function CPFStep(props: ICPFStepProps) {
   }, [])
 
   async function onSubmit(values: TCreateAccountCPF) {
-    storageService.updateStore({ ...values, step: 2 })
+    storageService.updateStore({ ...values, step: 1 })
     props.onSubmit()
   }
 
@@ -63,7 +63,11 @@ export default function CPFStep(props: ICPFStepProps) {
           />
         )}
       />
-      <Button text="PRÓXIMA" disabled={!isValid} onPress={handleSubmit(onSubmit)} />
+      <Button
+        text="PRÓXIMA"
+        disabled={!isValid}
+        onPress={handleSubmit(onSubmit)}
+      />
     </View>
   )
 }

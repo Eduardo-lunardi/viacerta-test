@@ -10,7 +10,9 @@ import EmailStep from './steps/EmailStep'
 import NameStep from './steps/NameStep'
 import PasswordStep from './steps/PasswordStep'
 
-export default function CreateAccount({ navigation }: TStackScreenProps<'CreateAccount'>) {
+export default function CreateAccount({
+  navigation
+}: TStackScreenProps<'CreateAccount'>) {
   const [currentStep, setCurrentStep] = React.useState(1)
   const [storageStep, setStorageStep] = React.useState(1)
   const [isModalVisible, setModalVisible] = React.useState(false)
@@ -55,10 +57,15 @@ export default function CreateAccount({ navigation }: TStackScreenProps<'CreateA
       <Modal isVisible={true} onBackdropPress={() => {}} backdropOpacity={0.5}>
         <View style={styles.modalContent}>
           <Typography variant="Body" style={styles.modalText}>
-            Você já iniciou o processo de criação de conta. Deseja continuar de onde parou ou começar novamente?
+            Você já iniciou o processo de criação de conta. Deseja continuar de
+            onde parou ou começar novamente?
           </Typography>
           <View style={styles.buttonContainer}>
-            <Button variant="secondary" text="Recomeçar" onPress={handleRestart} />
+            <Button
+              variant="secondary"
+              text="Recomeçar"
+              onPress={handleRestart}
+            />
             <Button text="Continuar" onPress={handleContinue} />
           </View>
         </View>
@@ -69,7 +76,7 @@ export default function CreateAccount({ navigation }: TStackScreenProps<'CreateA
   return (
     <FormContainer>
       {currentStep === 1 && <CPFStep onSubmit={() => setCurrentStep(2)} />}
-      {currentStep === 2 && <NameStep />}
+      {currentStep === 2 && <NameStep onSubmit={() => setCurrentStep(3)} />}
       {currentStep === 3 && <EmailStep />}
       {currentStep === 4 && <PasswordStep />}
     </FormContainer>

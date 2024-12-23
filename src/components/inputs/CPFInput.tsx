@@ -1,4 +1,10 @@
-import { NativeSyntheticEvent, StyleSheet, TextInput, TextInputSubmitEditingEventData, View } from 'react-native'
+import {
+  NativeSyntheticEvent,
+  StyleSheet,
+  TextInput,
+  TextInputSubmitEditingEventData,
+  View
+} from 'react-native'
 import { theme } from 'src/constants'
 
 import Typography from '../Typography'
@@ -7,7 +13,9 @@ interface ICPFInputProps {
   error?: string
   value?: string
   onChangeText: (text: string) => void
-  onSubmitEditing: (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void
+  onSubmitEditing: (
+    e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
+  ) => void
 }
 
 export default function CPFInput(props: ICPFInputProps) {
@@ -19,7 +27,10 @@ export default function CPFInput(props: ICPFInputProps) {
     }
 
     if (formattedCpf.length <= 11) {
-      formattedCpf = formattedCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, '$1.$2.$3-$4')
+      formattedCpf = formattedCpf.replace(
+        /(\d{3})(\d{3})(\d{3})(\d{1,2})/,
+        '$1.$2.$3-$4'
+      )
     }
 
     props.onChangeText(formattedCpf)
