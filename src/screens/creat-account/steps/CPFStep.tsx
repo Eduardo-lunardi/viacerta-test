@@ -56,6 +56,7 @@ export default function CPFStep(props: ICPFStepProps) {
         control={control}
         render={({ field, fieldState }) => (
           <CPFInput
+            autoFocus
             value={field.value}
             onChangeText={field.onChange}
             error={fieldState.error?.message}

@@ -58,6 +58,7 @@ export default function EmailStep(props: IEmailStepProps) {
         control={control}
         render={({ field, fieldState }) => (
           <Input
+            autoFocus
             value={field.value}
             autoCapitalize="none"
             keyboardType="email-address"

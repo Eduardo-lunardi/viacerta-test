@@ -58,6 +58,7 @@ export default function PasswordStep(props: INameStepProps) {
         control={control}
         render={({ field, fieldState }) => (
           <InputPassword
+            autoFocus
             value={field.value}
             onChangeText={field.onChange}
             error={fieldState.error?.message}

@@ -16,6 +16,7 @@ interface ICPFInputProps {
   onSubmitEditing: (
     e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
   ) => void
+  autoFocus?: boolean
 }
 
 export default function CPFInput(props: ICPFInputProps) {
@@ -47,6 +48,7 @@ export default function CPFInput(props: ICPFInputProps) {
         onChangeText={handleCpfChange}
         placeholderTextColor={theme.colors.gray}
         onSubmitEditing={props.onSubmitEditing}
+        autoFocus={true}
       />
       {!!props.error?.length && (
         <Typography variant="Body" color="red">

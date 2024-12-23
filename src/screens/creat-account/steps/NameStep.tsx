@@ -56,6 +56,7 @@ export default function NameStep(props: INameStepProps) {
         control={control}
         render={({ field, fieldState }) => (
           <Input
+            autoFocus
             value={field.value}
             onChangeText={field.onChange}
             error={fieldState.error?.message}

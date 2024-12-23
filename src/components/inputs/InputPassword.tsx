@@ -21,6 +21,7 @@ interface IInputPasswordProps {
   onSubmitEditing: (
     e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
   ) => void
+  autoFocus?: boolean
 }
 
 export default function Input(props: IInputPasswordProps) {
@@ -33,6 +34,7 @@ export default function Input(props: IInputPasswordProps) {
           value={props.value}
           style={styles.input}
           autoCapitalize="none"
+          autoFocus={props.autoFocus}
           placeholder={props.placeholder}
           onChangeText={props.onChangeText}
           secureTextEntry={isPasswordVisible}
