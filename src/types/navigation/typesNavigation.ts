@@ -1,13 +1,9 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
-export type StackParamList = {
+export type TStackParamList = {
   Home: undefined
-  CPF: undefined
-  Name: undefined
-  Email: undefined
-  Password: undefined
+  CreateAccount: undefined
   Success: undefined
 }
 
-export type StackScreenProps<Screen extends keyof StackParamList> =
-  NativeStackScreenProps<StackParamList, Screen>
+export type TStackScreenProps<Screen extends keyof TStackParamList> = NativeStackScreenProps<TStackParamList, Screen>

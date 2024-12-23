@@ -1,5 +1,5 @@
 import { View } from 'react-native'
 
-export default function Name() {
+export default function EmailStep() {
   return <View />
 }

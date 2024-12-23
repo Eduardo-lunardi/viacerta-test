@@ -1,15 +1,12 @@
 import { LinkingOptions } from '@react-navigation/native'
-import { StackParamList } from 'src/types'
+import { TStackParamList } from 'src/types'
 
-const linkingConfig: LinkingOptions<StackParamList> = {
+const linkingConfig: LinkingOptions<TStackParamList> = {
   prefixes: ['/'],
   config: {
     screens: {
       Home: 'Home',
-      CPF: 'CPF',
-      Name: 'Name',
-      Email: 'Email',
-      Password: 'Password',
+      CreateAccount: 'CreateAccount',
       Success: 'Success'
     }
   }

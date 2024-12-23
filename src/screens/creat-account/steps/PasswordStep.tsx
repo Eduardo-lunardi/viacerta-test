@@ -1,5 +1,5 @@
 import { View } from 'react-native'
 
-export default function CPF() {
+export default function PasswordStep() {
   return <View />
 }
