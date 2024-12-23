@@ -6,8 +6,18 @@ interface TypographyProps extends TextProps {
   color?: keyof typeof theme.colors
 }
 
-export default function Typography({ variant, color = 'blue', style, ...restProps }: TypographyProps) {
-  return <Text style={[styles[variant], { color: theme.colors[color] }, style]} {...restProps} />
+export default function Typography({
+  variant,
+  color = 'blue',
+  style,
+  ...restProps
+}: TypographyProps) {
+  return (
+    <Text
+      style={[styles[variant], { color: theme.colors[color] }, style]}
+      {...restProps}
+    />
+  )
 }
 
 const styles = StyleSheet.create({

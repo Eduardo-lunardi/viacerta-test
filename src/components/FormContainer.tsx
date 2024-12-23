@@ -6,9 +6,16 @@ interface IFormContainerProps extends ViewProps {
   children?: React.ReactNode
 }
 
-export default function FormContainer({ children, ...restProps }: IFormContainerProps) {
+export default function FormContainer({
+  children,
+  ...restProps
+}: IFormContainerProps) {
   return (
-    <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.contentContainer} {...restProps}>
+    <ScrollView
+      style={styles.scrollContainer}
+      contentContainerStyle={styles.contentContainer}
+      {...restProps}
+    >
       <View style={styles.formBox}>{children}</View>
     </ScrollView>
   )

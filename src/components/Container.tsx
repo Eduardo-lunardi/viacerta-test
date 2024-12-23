@@ -7,7 +7,11 @@ interface IPropsContainer {
   variant?: 'white' | 'gray'
 }
 
-export default function Container({ children, variant = 'white', ...restProps }: IPropsContainer & ViewProps) {
+export default function Container({
+  children,
+  variant = 'white',
+  ...restProps
+}: IPropsContainer & ViewProps) {
   const backgroundColor = theme.colors[variant]
   const containerStyle = [styles.container, { backgroundColor }]
 

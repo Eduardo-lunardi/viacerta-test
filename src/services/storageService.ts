@@ -12,7 +12,9 @@ const getStore = async (): Promise<TCreateAccountDataStep | undefined> => {
   }
 }
 
-const updateStore = async (value: Partial<TCreateAccountDataStep>): Promise<void> => {
+const updateStore = async (
+  value: Partial<TCreateAccountDataStep>
+): Promise<void> => {
   try {
     const existingData = await getStore()
     const updatedData = { ...existingData, ...value }

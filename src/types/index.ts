@@ -5,4 +5,7 @@ export type {
   TCreateAccountName,
   TCreateAccountPassword
 } from './create-account/typeCreateAccount'
-export type { TStackParamList, TStackScreenProps } from './navigation/typesNavigation'
+export type {
+  TStackParamList,
+  TStackScreenProps
+} from './navigation/typesNavigation'

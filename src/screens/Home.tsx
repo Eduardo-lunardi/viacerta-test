@@ -11,13 +11,21 @@ export default function Home({ navigation }: TStackScreenProps<'Home'>) {
   return (
     <Container>
       <View style={styles.logoContainer}>
-        <Shadow distance={5} startColor={theme.colors.black100} endColor={theme.colors.white} offset={[0, 6]}>
+        <Shadow
+          distance={5}
+          startColor={theme.colors.black100}
+          endColor={theme.colors.white}
+          offset={[0, 6]}
+        >
           <View style={[styles.logoWrapper, { width: screenWidth - 64 }]}>
             <Logo />
           </View>
         </Shadow>
       </View>
-      <Button onPress={() => navigation.navigate('CreateAccount')} text="CRIAR CONTA" />
+      <Button
+        onPress={() => navigation.navigate('CreateAccount')}
+        text="CRIAR CONTA"
+      />
     </Container>
   )
 }

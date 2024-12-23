@@ -15,8 +15,16 @@ export default function Navigation() {
           headerShadowVisible: false
         }}
       >
-        <Stack.Screen name="Home" component={Screens.Home} options={{ headerShown: false }} />
-        <Stack.Screen name="CreateAccount" component={Screens.CreateAccount} options={{ title: 'Criar conta' }} />
+        <Stack.Screen
+          name="Home"
+          component={Screens.Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreateAccount"
+          component={Screens.CreateAccount}
+          options={{ title: 'Criar conta' }}
+        />
         <Stack.Screen name="Success" component={Screens.Success} />
       </Stack.Navigator>
     </NavigationContainer>

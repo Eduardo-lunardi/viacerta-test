@@ -1,4 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps
+} from 'react-native'
 import { theme } from 'src/constants'
 
 interface ButtonProps extends TouchableOpacityProps {
@@ -6,14 +11,30 @@ interface ButtonProps extends TouchableOpacityProps {
   variant?: 'primary' | 'secondary'
 }
 
-export default function Button({ text, disabled, variant = 'primary', ...restProps }: ButtonProps) {
+export default function Button({
+  text,
+  disabled,
+  variant = 'primary',
+  ...restProps
+}: ButtonProps) {
   return (
     <TouchableOpacity
-      style={[styles.button, styles[variant], disabled && styles.disabledButton]}
+      style={[
+        styles.button,
+        styles[variant],
+        disabled && styles.disabledButton
+      ]}
       disabled={disabled}
       {...restProps}
     >
-      <Text style={[styles.buttonText, variant === 'secondary' && styles.secondaryText]}>{text}</Text>
+      <Text
+        style={[
+          styles.buttonText,
+          variant === 'secondary' && styles.secondaryText
+        ]}
+      >
+        {text}
+      </Text>
     </TouchableOpacity>
   )
 }

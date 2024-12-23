@@ -6,4 +6,5 @@ export type TStackParamList = {
   Success: undefined
 }
 
-export type TStackScreenProps<Screen extends keyof TStackParamList> = NativeStackScreenProps<TStackParamList, Screen>
+export type TStackScreenProps<Screen extends keyof TStackParamList> =
+  NativeStackScreenProps<TStackParamList, Screen>

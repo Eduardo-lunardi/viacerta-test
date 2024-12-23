@@ -8,7 +8,10 @@ import Typography from './Typography'
 export default function Header(props: NativeStackHeaderProps) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={props.navigation.goBack} style={styles.backButton}>
+      <TouchableOpacity
+        onPress={props.navigation.goBack}
+        style={styles.backButton}
+      >
         <ChevronLeftIcon />
       </TouchableOpacity>
       <Typography variant="Heading" color="blue" style={styles.title}>
