@@ -77,7 +77,7 @@ export default function CreateAccount({
     <FormContainer>
       {currentStep === 1 && <CPFStep onSubmit={() => setCurrentStep(2)} />}
       {currentStep === 2 && <NameStep onSubmit={() => setCurrentStep(3)} />}
-      {currentStep === 3 && <EmailStep />}
+      {currentStep === 3 && <EmailStep onSubmit={() => setCurrentStep(4)} />}
       {currentStep === 4 && <PasswordStep />}
     </FormContainer>
   )

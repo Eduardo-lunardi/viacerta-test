@@ -48,7 +48,7 @@ export default function NameStep(props: INameStepProps) {
       <View>
         <Typography variant="Heading">Tudo certo, agora informe seu</Typography>
         <Typography variant="Heading" color="orange">
-          Nome
+          NOME
         </Typography>
       </View>
       <Controller
@@ -59,6 +59,7 @@ export default function NameStep(props: INameStepProps) {
             value={field.value}
             onChangeText={field.onChange}
             error={fieldState.error?.message}
+            onSubmitEditing={handleSubmit(onSubmit)}
           />
         )}
       />
