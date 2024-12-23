@@ -47,10 +47,17 @@ export const createAccountNameSchema: ObjectSchema<TCreateAccountName> = object(
 
 export const createAccountEmailSchema: ObjectSchema<TCreateAccountEmail> =
   object({
-    email: string().required('E-mail obrigatório')
+    email: string()
+      .required('E-mail obrigatório')
+      .email('Informe um E-MAIL válido')
   }).required()
 
 export const createAccountPasswordSchema: ObjectSchema<TCreateAccountPassword> =
   object({
-    password: string().required('Senha obrigatório')
+    password: string()
+      .required('Senha obrigatório')
+      .min(8, 'A senha deve ter pelo menos 8 caracteres')
+      .matches(/[a-z]/, 'A senha deve conter pelo menos uma letra minúscula')
+      .matches(/[A-Z]/, 'A senha deve conter pelo menos uma letra maiúscula')
+      .matches(/[\W_]/, 'A senha deve conter pelo menos um caractere especial')
   }).required()

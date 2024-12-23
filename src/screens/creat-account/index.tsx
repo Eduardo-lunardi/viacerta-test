@@ -52,6 +52,11 @@ export default function CreateAccount({
     setCurrentStep(1)
   }
 
+  async function onSubmit() {
+    const savedData = await storageService.getStore()
+    console.log(savedData)
+  }
+
   if (isModalVisible) {
     return (
       <Modal isVisible={true} onBackdropPress={() => {}} backdropOpacity={0.5}>
@@ -78,7 +83,7 @@ export default function CreateAccount({
       {currentStep === 1 && <CPFStep onSubmit={() => setCurrentStep(2)} />}
       {currentStep === 2 && <NameStep onSubmit={() => setCurrentStep(3)} />}
       {currentStep === 3 && <EmailStep onSubmit={() => setCurrentStep(4)} />}
-      {currentStep === 4 && <PasswordStep />}
+      {currentStep === 4 && <PasswordStep onSubmit={onSubmit} />}
     </FormContainer>
   )
 }

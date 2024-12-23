@@ -3,12 +3,12 @@ import { theme } from 'src/constants'
 
 import Typography from '../Typography'
 
-interface ICPFInputProps extends TextInputProps {
+interface IInputProps extends TextInputProps {
   error?: string
   placeholder?: string
 }
 
-export default function CPFInput(props: ICPFInputProps) {
+export default function Input(props: IInputProps) {
   return (
     <View>
       <TextInput

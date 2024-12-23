@@ -2,7 +2,7 @@ import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { theme } from 'src/constants'
 
-import ChevronLeftIcon from './ChevronLeftIcon'
+import ChevronLeftIcon from './icons/ChevronLeftIcon'
 import Typography from './Typography'
 
 export default function Header(props: NativeStackHeaderProps) {

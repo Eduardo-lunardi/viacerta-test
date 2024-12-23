@@ -7,11 +7,11 @@ import { createAccountEmailSchema } from 'src/schemas'
 import { storageService } from 'src/services'
 import { TCreateAccountEmail } from 'src/types'
 
-interface INameStepProps {
+interface IEmailStepProps {
   onSubmit: () => void
 }
 
-export default function EmailStep(props: INameStepProps) {
+export default function EmailStep(props: IEmailStepProps) {
   const {
     control,
     handleSubmit,
