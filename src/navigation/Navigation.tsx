@@ -10,6 +10,7 @@ export default function Navigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="Home"
         screenOptions={{
           header: (props) => <HeaderStack {...props} />,
           headerShadowVisible: false
@@ -25,7 +26,11 @@ export default function Navigation() {
           component={Screens.CreateAccount}
           options={{ title: 'Criar conta' }}
         />
-        <Stack.Screen name="Success" component={Screens.Success} />
+        <Stack.Screen
+          name="Success"
+          component={Screens.Success}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -18,5 +18,5 @@ export type TCreateAccountDataStep = TCreateAccountCPF &
   TCreateAccountName &
   TCreateAccountEmail &
   TCreateAccountPassword & {
-    step: number
+    step?: number
   }

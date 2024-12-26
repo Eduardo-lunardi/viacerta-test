@@ -3,3 +3,12 @@ declare module '*.svg' {
   const content: React.FC<React.SVGProps<SVGSVGElement>>
   export default content
 }
+
+declare module '*.png' {
+  const value: never
+  export = value
+}
+
+declare module '@env' {
+  export const API_URL: string
+}

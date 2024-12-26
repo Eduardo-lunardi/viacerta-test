@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -9,14 +10,19 @@ import { theme } from 'src/constants'
 interface ButtonProps extends TouchableOpacityProps {
   text: string
   variant?: 'primary' | 'secondary'
+  loading?: boolean
 }
 
 export default function Button({
   text,
   disabled,
   variant = 'primary',
+  loading,
   ...restProps
 }: ButtonProps) {
+  const activityIndicatorColor =
+    variant === 'secondary' ? theme.colors.orange : theme.colors.white
+
   return (
     <TouchableOpacity
       style={[
@@ -24,17 +30,21 @@ export default function Button({
         styles[variant],
         disabled && styles.disabledButton
       ]}
-      disabled={disabled}
+      disabled={disabled || loading}
       {...restProps}
     >
-      <Text
-        style={[
-          styles.buttonText,
-          variant === 'secondary' && styles.secondaryText
-        ]}
-      >
-        {text}
-      </Text>
+      {loading ? (
+        <ActivityIndicator size="small" color={activityIndicatorColor} />
+      ) : (
+        <Text
+          style={[
+            styles.buttonText,
+            variant === 'secondary' && styles.secondaryText
+          ]}
+        >
+          {text}
+        </Text>
+      )}
     </TouchableOpacity>
   )
 }

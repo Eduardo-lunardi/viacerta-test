@@ -10,13 +10,14 @@ interface IPropsContainer {
 export default function Container({
   children,
   variant = 'white',
+  style,
   ...restProps
 }: IPropsContainer & ViewProps) {
   const backgroundColor = theme.colors[variant]
   const containerStyle = [styles.container, { backgroundColor }]
 
   return (
-    <View style={[containerStyle, restProps.style]} {...restProps}>
+    <View style={[containerStyle, style]} {...restProps}>
       {children}
     </View>
   )

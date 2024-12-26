@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import Modal from 'react-native-modal'
 import { Button, FormContainer, Typography } from 'src/components'
-import { storageService } from 'src/services'
+import { api, storageService } from 'src/services'
 import { TStackScreenProps } from 'src/types'
 
 import CPFStep from './steps/CPFStep'
@@ -16,6 +16,7 @@ export default function CreateAccount({
   const [currentStep, setCurrentStep] = React.useState(1)
   const [storageStep, setStorageStep] = React.useState(1)
   const [isModalVisible, setModalVisible] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
     const loadProgress = async () => {
@@ -53,8 +54,21 @@ export default function CreateAccount({
   }
 
   async function onSubmit() {
-    const savedData = await storageService.getStore()
-    console.log(savedData)
+    try {
+      setLoading(true)
+      const data = await storageService.getStore()
+      delete data?.step
+      await api.post('/users', data)
+      await storageService.deleteStore()
+      setCurrentStep(1)
+      setStorageStep(1)
+      navigation.navigate('Success')
+    } catch (error) {
+      console.error('Erro ao criar usuário:', error)
+      throw error
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (isModalVisible) {
@@ -83,7 +97,9 @@ export default function CreateAccount({
       {currentStep === 1 && <CPFStep onSubmit={() => setCurrentStep(2)} />}
       {currentStep === 2 && <NameStep onSubmit={() => setCurrentStep(3)} />}
       {currentStep === 3 && <EmailStep onSubmit={() => setCurrentStep(4)} />}
-      {currentStep === 4 && <PasswordStep onSubmit={onSubmit} />}
+      {currentStep === 4 && (
+        <PasswordStep onSubmit={onSubmit} loading={loading} />
+      )}
     </FormContainer>
   )
 }

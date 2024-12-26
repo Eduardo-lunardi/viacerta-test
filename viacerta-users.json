@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "fce2",
+      "cpf": "042.986.140-00",
+      "name": "Edu",
+      "email": "edu@gmail.com",
+      "password": "qwe12@Aj"
+    },
+    {
+      "id": "58ca",
+      "cpf": "042.986.140-00",
+      "name": "Edu",
+      "email": "eduardo@gmail.com",
+      "password": "eduA@gsdj"
+    }
+  ]
+}

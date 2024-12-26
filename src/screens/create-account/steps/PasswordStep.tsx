@@ -9,6 +9,7 @@ import { TCreateAccountPassword } from 'src/types'
 
 interface INameStepProps {
   onSubmit: () => void
+  loading: boolean
 }
 
 export default function PasswordStep(props: INameStepProps) {
@@ -70,6 +71,7 @@ export default function PasswordStep(props: INameStepProps) {
         text="PRÓXIMA"
         disabled={!isValid}
         onPress={handleSubmit(onSubmit)}
+        loading={props.loading}
       />
     </View>
   )
