@@ -1,79 +1,43 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# VIACERTA Teste
 
-# Getting Started
+## ⚡ Stack e Dependências
 
-> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+[**React Native**](https://reactnative.dev/), [**TypeScript**](https://www.typescriptlang.org/)  configurado com:
 
-## Step 1: Start the Metro Server
+* [**React Navigation**](https://reactnavigation.org/docs/getting-started/): Para navegar pelas telas, estamos usando a stack de navegação.
+* [**ESlint**](https://eslint.org/) e [**Prettier**](https://prettier.io/): ESlint e Prettier ajudam a detectar erros enquanto mantêm a formatação do código limpa.
+* **Importações absolutas:** Para evitar importações relativas irritantes, os arquivos tsconfig.json e o arquivo babel.config.js estão configurados para fazer uso de importações absolutas.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
+## 🔧 Uso
+Para instalar as dependências rode:
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+yarn
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+O Projeto utiliza jsor-server para salvar os dados inputados no form:
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+yarn server
 ```
 
-### For iOS
+O aplicativo funciona com [**React Native DotEnv**](https://github.com/goatandsheep/react-native-dotenv), para isso crie um arquivo *.env* baseado no *.env.example*, e adicione na variavel a url que do server. Se utilizar um simulador o localhost ira funcionar, mas se for testa-lo em um dispositivo coloque o seu ip no localhost ou rode um ngrok para o mesmo.
 
-```bash
-# using npm
-npm run ios
+- Para rodar o aplicativo `yarn start`
+- Rodar no android `yarn android`
+   - No android as vezes precisa entrar na pasta android `cd android` e rodar `./gradlew clean`
+- Rodar no iOS `yarn ios`
+   - Antes de rodar no iOS entre nas pasta ios `cd ios` e rode `pod install`
+- Verificação do código: 
+    - `yarn lint` or `yarn eslint .`,
+    - `yarn prettier:check` or `yarn prettier . --check`
+- Formatação do código: 
+    - `yarn lint:fix` or `yarn eslint . --fix`,
+    - `yarn prettier:fix` or `yarn prettier . --write`
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 📂 Organização
+`src/components`: biblioteca útil de componentes reutilizáveis.  
+`src/navigation`: navegadores de navegação reativa.  
+`src/screens`: as telas principais do aplicativo.  
+`src/types`: definições de interfaces e tipos importantes.  
+`src/constants`: variaves de thema da aplicação.  
+`src/services`: configuração do storage e api.  
+`src/schemas`: schema para os formulario basedo no yup. 
