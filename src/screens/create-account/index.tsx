@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import Modal from 'react-native-modal'
 import { Button, FormContainer, Typography } from 'src/components'
 import { api, storageService } from 'src/services'
 import { TStackScreenProps } from 'src/types'
@@ -15,14 +14,14 @@ export default function CreateAccount({
 }: TStackScreenProps<'CreateAccount'>) {
   const [currentStep, setCurrentStep] = React.useState(1)
   const [storageStep, setStorageStep] = React.useState(1)
-  const [isModalVisible, setModalVisible] = React.useState(false)
+  const [isResumePromptVisible, setResumePromptVisible] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
     const loadProgress = async () => {
       const savedData = await storageService.getStore()
       if (savedData?.step) {
-        setModalVisible(true)
+        setResumePromptVisible(true)
         setStorageStep(savedData?.step)
       }
     }
@@ -43,12 +42,12 @@ export default function CreateAccount({
   }, [navigation, currentStep])
 
   function handleContinue() {
-    setModalVisible(false)
+    setResumePromptVisible(false)
     setCurrentStep(storageStep)
   }
 
   function handleRestart() {
-    setModalVisible(false)
+    setResumePromptVisible(false)
     storageService.deleteStore()
     setCurrentStep(1)
   }
@@ -71,9 +70,9 @@ export default function CreateAccount({
     }
   }
 
-  if (isModalVisible) {
-    return (
-      <Modal isVisible={true} onBackdropPress={() => {}} backdropOpacity={0.5}>
+  return (
+    <FormContainer>
+      {isResumePromptVisible ? (
         <View style={styles.modalContent}>
           <Typography variant="Body" style={styles.modalText}>
             Você já iniciou o processo de criação de conta. Deseja continuar de
@@ -88,17 +87,17 @@ export default function CreateAccount({
             <Button text="Continuar" onPress={handleContinue} />
           </View>
         </View>
-      </Modal>
-    )
-  }
-
-  return (
-    <FormContainer>
-      {currentStep === 1 && <CPFStep onSubmit={() => setCurrentStep(2)} />}
-      {currentStep === 2 && <NameStep onSubmit={() => setCurrentStep(3)} />}
-      {currentStep === 3 && <EmailStep onSubmit={() => setCurrentStep(4)} />}
-      {currentStep === 4 && (
-        <PasswordStep onSubmit={onSubmit} loading={loading} />
+      ) : (
+        <>
+          {currentStep === 1 && <CPFStep onSubmit={() => setCurrentStep(2)} />}
+          {currentStep === 2 && <NameStep onSubmit={() => setCurrentStep(3)} />}
+          {currentStep === 3 && (
+            <EmailStep onSubmit={() => setCurrentStep(4)} />
+          )}
+          {currentStep === 4 && (
+            <PasswordStep onSubmit={onSubmit} loading={loading} />
+          )}
+        </>
       )}
     </FormContainer>
   )
