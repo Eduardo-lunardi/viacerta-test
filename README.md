@@ -2,42 +2,87 @@
 
 ## ⚡ Stack e Dependências
 
-[**React Native**](https://reactnative.dev/), [**TypeScript**](https://www.typescriptlang.org/)  configurado com:
+Este projeto utiliza as seguintes tecnologias e bibliotecas:
 
-* [**React Navigation**](https://reactnavigation.org/docs/getting-started/): Para navegar pelas telas, estamos usando a stack de navegação.
-* [**ESlint**](https://eslint.org/) e [**Prettier**](https://prettier.io/): ESlint e Prettier ajudam a detectar erros enquanto mantêm a formatação do código limpa.
-* **Importações absolutas:** Para evitar importações relativas irritantes, os arquivos tsconfig.json e o arquivo babel.config.js estão configurados para fazer uso de importações absolutas.
+### Principais Tecnologias
+- [**React Native**](https://reactnative.dev/): Estrutura principal do aplicativo.
+- [**TypeScript**](https://www.typescriptlang.org/): Superset de JavaScript para tipagem estática.
+
+### Bibliotecas de Suporte
+- [**React Navigation**](https://reactnavigation.org/docs/getting-started/): Navegação entre telas.
+- [**ESlint**](https://eslint.org/) e [**Prettier**](https://prettier.io/): Para detecção de erros e formatação consistente do código.
+- [**React Native DotEnv**](https://github.com/goatandsheep/react-native-dotenv): Gerenciamento de variáveis de ambiente.
+- **Importações Absolutas**: Configurado no `tsconfig.json` e `babel.config.js` para facilitar os imports.
 
 ## 🔧 Uso
-Para instalar as dependências rode:
+
+### Instale as dependências do projeto:
 ```bash
 yarn
 ```
 
-O Projeto utiliza jsor-server para salvar os dados inputados no form:
+### Configure o servidor para salvar os dados do formulário:
 ```bash
 yarn server
 ```
 
-O aplicativo funciona com [**React Native DotEnv**](https://github.com/goatandsheep/react-native-dotenv), para isso crie um arquivo *.env* baseado no *.env.example*, e adicione na variavel a url que do server. Se utilizar um simulador o localhost ira funcionar, mas se for testa-lo em um dispositivo coloque o seu ip no localhost ou rode um ngrok para o mesmo.
+### Configure as variáveis de ambiente:
+   - Crie um arquivo .env baseado no .env.example.
+   - Defina a URL do servidor na variável de ambiente.
+   - Se estiver usando um simulador, o localhost funcionará. Para dispositivos reais, utilize seu IP local ou um túnel como o ngrok.
 
-- Para rodar o aplicativo `yarn start`
-- Rodar no android `yarn android`
-   - No android as vezes precisa entrar na pasta android `cd android` e rodar `./gradlew clean`
-- Rodar no iOS `yarn ios`
-   - Antes de rodar no iOS entre nas pasta ios `cd ios` e rode `pod install`
-- Verificação do código: 
-    - `yarn lint` or `yarn eslint .`,
-    - `yarn prettier:check` or `yarn prettier . --check`
-- Formatação do código: 
-    - `yarn lint:fix` or `yarn eslint . --fix`,
-    - `yarn prettier:fix` or `yarn prettier . --write`
+### Rodando o Projeto
+- Inicie o aplicativo:
+```bash
+yarn start
+```
+- Execute no Android:
+```bash
+yarn android
+```
+- Caso enfrente problemas, limpe os builds:
+```bash
+cd android && ./gradlew clean
+```
+
+- Execute no iOS:
+```bash
+yarn ios
+```
+Antes disso, instale os pods:
+```bash
+cd ios && pod install
+```
+
+### Verificação e Formatação de Código
+- Verificar código
+```bash
+yarn lint
+yarn prettier:check
+```
+
+- Formatar código:
+```bash
+yarn lint:fix
+yarn prettier:fix
+```
 
 ## 📂 Organização
-`src/components`: biblioteca útil de componentes reutilizáveis.  
-`src/navigation`: navegadores de navegação reativa.  
-`src/screens`: as telas principais do aplicativo.  
-`src/types`: definições de interfaces e tipos importantes.  
-`src/constants`: variaves de thema da aplicação.  
-`src/services`: configuração do storage e api.  
-`src/schemas`: schema para os formulario basedo no yup. 
+
+`src/components`: Componentes reutilizáveis e estilizados.
+
+`src/navigation`: Configurações de navegação e rotas do aplicativo.
+
+`src/screens`: Telas principais, cada uma em um arquivo próprio.
+
+`src/types`: Tipos e interfaces TypeScript utilizados globalmente.
+
+`src/constants`: Variáveis de tema e constantes globais.
+
+`src/services`: Configurações de APIs e armazenamento local.  
+
+`src/schemas`: Schemas de validação para formulários utilizando o Yup. 
+
+`assets/images`: Imagens do projeto.
+
+`assets/fonts`: Fontes do projeto.
